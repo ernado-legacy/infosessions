@@ -2,6 +2,9 @@
 InfoSessions
 =====
 
+.. image:: https://badge.fury.io/py/django-infosessions.svg
+    :target: http://badge.fury.io/py/django-infosessions
+
 Quick start
 -----------
 
