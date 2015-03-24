@@ -14,4 +14,4 @@ install:
   - pip install nose coverage --use-mirrors
   - pip install $DJANGO --use-mirrors
   - pip install -q redis --use-mirrors
-script: python setup.py test --with-coverage --cover-package pypiview
+script: python setup.py test
