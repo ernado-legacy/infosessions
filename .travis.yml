@@ -7,7 +7,5 @@ env:
   - DJANGO="django==1.6.10"
 install:
   - pip install .
-  - pip install nose coverage --use-mirrors
-  - pip install $DJANGO --use-mirrors
-  - pip install -q redis --use-mirrors
+  - pip install $DJANGO
 script: python setup.py test
