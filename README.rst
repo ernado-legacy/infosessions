@@ -4,9 +4,13 @@ InfoSessions
 
 Forked from https://github.com/martinrusev/django-redis-sessions
 
+.. image:: https://travis-ci.org/ernado/infosessions.svg?branch=master
+    :target: https://travis-ci.org/ernado/infosessions
+
 
 .. image:: https://badge.fury.io/py/django-infosessions.svg
     :target: http://badge.fury.io/py/django-infosessions
+    
 
 Quick start
 -----------
