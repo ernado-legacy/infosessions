@@ -18,7 +18,7 @@ setup(
     long_description=README,
     author='Aleksandr Razumov',
     author_email='ernado@ya.ru',
-    install_requires=['django>=1.6', 'django-redis>=3.8.3'],
+    install_requires=['django>=1.6', 'django-redis>=3.8.3', 'hiredis>=0.1.4'],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
