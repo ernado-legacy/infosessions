@@ -1,0 +1,9 @@
+*.pyc
+*.swp
+*.log
+*.pid
+*.sock
+.idea
+*.mo
+*.seg
+*.toc
