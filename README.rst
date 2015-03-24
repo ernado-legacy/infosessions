@@ -2,6 +2,9 @@
 InfoSessions
 =====
 
+Forked from https://github.com/martinrusev/django-redis-sessions
+
+
 .. image:: https://badge.fury.io/py/django-infosessions.svg
     :target: http://badge.fury.io/py/django-infosessions
 
