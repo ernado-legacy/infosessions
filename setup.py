@@ -12,6 +12,7 @@ setup(
     version='0.2',
     packages=['infosessions'],
     include_package_data=True,
+    test_suite='runtests.run',
     license='BSD License',  # example license
     description='A simple Django app to capture session information',
     long_description=README,
