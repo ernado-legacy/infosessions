@@ -2,13 +2,9 @@ language: python
 services:
   - redis-server
 python:
-  - "3.4"
-  - "3.3"
-  - "3.2"
   - "2.7"
-  - "pypy"
 env:
-  - DJANGO="django>=1.6"
+  - DJANGO="django==1.6.10"
 install:
   - pip install .
   - pip install nose coverage --use-mirrors
