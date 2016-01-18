@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-infosessions',
-    version='0.4',
+    version='0.5',
     packages=['infosessions'],
     include_package_data=True,
     test_suite='runtests.run',
@@ -18,7 +18,7 @@ setup(
     long_description=README,
     author='Aleksandr Razumov',
     author_email='ernado@ya.ru',
-    install_requires=['django>=1.6', 'django-redis>=3.8.3', 'hiredis>=0.1.4'],
+    install_requires=['django>=1.8', 'django-redis>=3.8.3', 'hiredis>=0.1.4'],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',

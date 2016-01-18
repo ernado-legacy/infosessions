@@ -8,3 +8,7 @@ DATA_KEY = 'd'
 INFO_KEY = 'i'
 DEFAULT_PREFIX = 'default'
 INFO_EXIST_VALUE = 1
+IP_KEY = 'ip'
+SESSION_PROCESSED = 'session_processed'
+META_IP = 'REMOTE_ADDR'
+META_AGENT = 'HTTP_USER_AGENT'
