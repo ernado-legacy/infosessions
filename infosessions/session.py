@@ -7,7 +7,8 @@ from redis.exceptions import RedisError
 from django.utils.encoding import force_unicode
 from django.contrib.sessions.backends.base import SessionBase, CreateError
 from django.core.exceptions import SuspiciousOperation
-from django.contrib.sessions.backends.db import Session as DataBaseSession, SessionStore as DataBaseStore
+from django.contrib.sessions.backends.db import SessionStore as DataBaseStore
+from django.contrib.sessions.models import Session as DataBaseSession
 from django_redis import get_redis_connection
 from django.utils import timezone
 
