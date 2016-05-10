@@ -1,6 +1,6 @@
-=====
+============
 InfoSessions
-=====
+============
 
 Forked from https://github.com/martinrusev/django-redis-sessions
 
