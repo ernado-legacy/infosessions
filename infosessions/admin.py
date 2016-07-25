@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.contrib import admin
 from django.utils.translation import ugettext as _
 
-from .models import SessionInfo
+from .models import SessionInfo, UserAgent
 
 
 # noinspection PyUnusedLocal
@@ -28,3 +28,11 @@ class SessionInfoAdmin(admin.ModelAdmin):
         # model is read-only except of active
 
 admin.site.register(SessionInfo, SessionInfoAdmin)
+
+
+class UserAgentAdmin(admin.ModelAdmin):
+    list_display = ('title', 'md5_hash',)
+    search_fields = ['^md5_hash', ]
+    readonly_fields = ['title', 'md5_hash', ]
+
+admin.site.register(UserAgent, UserAgentAdmin)

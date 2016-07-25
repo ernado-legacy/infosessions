@@ -27,6 +27,24 @@ from .constants import (MAX_KEY_LENGTH,
 logger = logging.getLogger(__name__)
 
 
+class UserAgent(models.Model):
+    title = models.TextField()
+    md5_hash = models.CharField(max_length=32, db_index=True, unique=True)
+
+    @classmethod
+    def add(cls, user_agent):
+        """
+        :type user_agent: str
+        :param user_agent: User agent string
+        :rtype: UserAgent
+        """
+        user_agent_obj, _ = cls.objects.get_or_create(
+            title=user_agent,
+            md5_hash=hashlib.md5(user_agent).hexdigest(),
+        )
+        return user_agent_obj
+
+
 class SessionInfo(models.Model):
     """
     Session-related information
@@ -40,9 +58,7 @@ class SessionInfo(models.Model):
 
     # additional request data
     user_ip = models.GenericIPAddressField(default='127.0.0.1', db_index=True)
-    user_agent = models.TextField(null=True, default=None, blank=True)
-
-    # auto-generated data on .save()
+    # user_agent = models.TextField(null=True, default=None, blank=True) # moved to UserAgent.title
     user_agent_md5 = models.CharField(max_length=32, default=None, null=True, blank=True)
 
     @classmethod
@@ -97,7 +113,8 @@ class SessionInfo(models.Model):
 
         # additional request data processing
         session.user_ip = request.META.get(META_IP)
-        session.user_agent = force_text(request.META.get(META_AGENT), errors='replace')
+        user_agent = UserAgent.add(force_text(request.META.get(META_AGENT), errors='replace'))
+        session.user_agent_md5 = user_agent.md5_hash
 
         return session
 
@@ -143,8 +160,6 @@ class SessionInfo(models.Model):
         return '{user}'.format(user=self.user)
 
     def save(self, *args, **kwargs):
-        if self.user_agent:
-            self.user_agent_md5 = hashlib.md5(self.user_agent).hexdigest()
         super(SessionInfo, self).save(*args, **kwargs)
         logger.info('saved %s %s session_info' % (self.key, self.prefix))
 
